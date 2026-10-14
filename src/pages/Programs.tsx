@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { ProgramCard } from '../components/ProgramCard';
 import { programs } from '../data/programs';
 
-const categories = ['All', 'Foundation', 'Digital Skills', 'Analytics', 'Future Skills', 'Experiential Learning', 'Professional Skills', 'Career Growth'];
+const categories = ['All', 'Foundation', 'Digital Skills', 'Analytics', 'Future Skills', 'Experiential Learning', 'Professional Skills', 'Career Growth', 'Women in Corporate'];
 
 export default function Programs() {
   const [query, setQuery] = useState('');
@@ -85,11 +85,10 @@ export default function Programs() {
                   type="button"
                   aria-pressed={category === item}
                   onClick={() => setCategory(item)}
-                  className={`shrink-0 rounded-full border px-4 py-2.5 text-xs font-semibold transition-all duration-200 ${
-                    category === item
+                  className={`shrink-0 rounded-full border px-4 py-2.5 text-xs font-semibold transition-all duration-200 ${category === item
                       ? 'border-navy bg-navy text-white shadow-md'
                       : 'border-borderSoft bg-white text-textMuted hover:-translate-y-0.5 hover:border-electric/40 hover:text-electric'
-                  }`}
+                    }`}
                 >
                   {item}
                 </button>

@@ -10,7 +10,7 @@ export const navItems = [
 
 export const contactInfo = {
   email: 'hello@campindus.in',
-  phone: '+91 98765 43210',
+  phone: '+91 8050234962',
   location: 'Bengaluru, India',
   linkedin: 'https://www.linkedin.com',
   instagram: 'https://www.instagram.com',

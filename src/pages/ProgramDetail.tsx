@@ -49,27 +49,58 @@ export default function ProgramDetail() {
         </div>
       </section>
 
-      <section className="section-shell py-6">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="card-surface p-8">
-            <h2 className="text-2xl font-bold text-navy">Topics included</h2>
-            <ul className="mt-6 space-y-3">
-              {program.topics.map((topic) => (
-                <li key={topic} className="flex items-start gap-3 text-base text-textMuted"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-electric" /> {topic}</li>
-              ))}
-            </ul>
+      {program.highlights && program.learningApproach && program.outcome ? (
+        <>
+          <section className="section-shell py-6">
+            <div>
+              <h2 className="text-2xl font-bold text-navy md:text-3xl">Program Highlights</h2>
+              <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                {program.highlights.map((highlight) => (
+                  <article key={highlight.title} className="card-surface p-5 sm:p-6">
+                    <CheckCircle2 className="mb-4 h-6 w-6 text-electric" />
+                    <h3 className="text-lg font-bold text-navy">{highlight.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-textMuted">{highlight.description}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+          <section className="section-shell py-6">
+            <div className="grid gap-5 lg:grid-cols-2">
+              <article className="card-surface p-6 sm:p-8">
+                <h2 className="text-2xl font-bold text-navy">Learning Approach</h2>
+                <p className="mt-4 text-base leading-8 text-textMuted">{program.learningApproach}</p>
+              </article>
+              <article className="rounded-[22px] bg-sky p-6 sm:p-8">
+                <h2 className="text-2xl font-bold text-navy">Program Outcome</h2>
+                <p className="mt-4 text-base leading-8 text-textMuted">{program.outcome}</p>
+              </article>
+            </div>
+          </section>
+        </>
+      ) : (
+        <section className="section-shell py-6">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="card-surface p-8">
+              <h2 className="text-2xl font-bold text-navy">Topics included</h2>
+              <ul className="mt-6 space-y-3">
+                {program.topics.map((topic) => (
+                  <li key={topic} className="flex items-start gap-3 text-base text-textMuted"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-electric" /> {topic}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card-surface p-8">
+              <h2 className="text-2xl font-bold text-navy">Program structure</h2>
+              <ul className="mt-6 space-y-3 text-base text-textMuted">
+                <li>• Practical learning sessions and guided exercises</li>
+                <li>• Assessments and structured feedback</li>
+                <li>• Career-oriented reflection and improvement</li>
+                <li>• Delivery and duration can be tailored after discussion</li>
+              </ul>
+            </div>
           </div>
-          <div className="card-surface p-8">
-            <h2 className="text-2xl font-bold text-navy">Program structure</h2>
-            <ul className="mt-6 space-y-3 text-base text-textMuted">
-              <li>• Practical learning sessions and guided exercises</li>
-              <li>• Assessments and structured feedback</li>
-              <li>• Career-oriented reflection and improvement</li>
-              <li>• Delivery and duration can be tailored after discussion</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </motion.main>
   );
 }
